@@ -4,10 +4,14 @@ from datetime import datetime
 from collections import defaultdict
 
 def load_users_data():
-    if not os.path.exists("data/member_info.json"):
+    try:
+        if not os.path.exists("data/member_info.json"):
+            return []
+        with open("data/member_info.json", "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError, Exception) as e:
+        print(f"Error loading users data: {e}")
         return []
-    with open("data/member_info.json", "r") as f:
-        return json.load(f)
 
 def load_trainers_data():
     if not os.path.exists("data/trainer_info.json"):
@@ -80,16 +84,28 @@ def calculate_revenue_data():
     }
 
 def search_members_by_name(search_term):
-    members = load_users_data()
+    try:
+        with open("data/member_info.json", "r", encoding="utf-8") as f:
+            members = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
     search_term = search_term.strip().lower()
     found_members = []
     
+    if not search_term:  # If search term is empty, return all members
+        return members
+    
     for member in members:
-        f_name = member.get('f_name', '').lower()
-        l_name = member.get('l_name', '').lower()
+        f_name = str(member.get('f_name', '')).lower()
+        l_name = str(member.get('l_name', '')).lower()
+        username = str(member.get('username', '')).lower()
         full_name = f"{f_name} {l_name}".strip()
         
-        if search_term in f_name or search_term in l_name or search_term in full_name:
+        if (search_term in f_name or 
+            search_term in l_name or 
+            search_term in full_name or
+            search_term in username):
             found_members.append(member)
     
     return found_members

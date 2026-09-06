@@ -23,6 +23,25 @@ def on_check_workout_schedule(root, member):
     from guis.member_guis.check_workout import show_member_workout_window
     show_member_workout_window(username, window=root)
 
+def create_track_progress_window(parent, member, current_sub_window=None):
+    """Create and manage the track progress window"""
+    if current_sub_window and current_sub_window.winfo_exists():
+        current_sub_window.destroy()
+    
+    new_window = tk.Toplevel(parent)
+    new_window.geometry(f"{parent.winfo_screenwidth()}x{parent.winfo_screenheight()}")
+    c_icon(new_window)
+    c_background(new_window)
+    
+    from guis.member_guis.track_progress import on_track_progress
+    on_track_progress(new_window, member)
+    
+    return new_window
+
+def on_track_progress(root, member, current_sub_window=None):
+    """Function to handle track progress button click"""
+    return create_track_progress_window(root, member, current_sub_window)
+
 def on_renew_subscribe_plan(root, member):
     # Open the renew/subscribe GUI for this member
     username = member.username if hasattr(member, 'username') else member['username']
@@ -88,6 +107,14 @@ def open_member_window(member):
 
     btn_view_profile = tk.Button(toolbar, text="View Profile", command=open_view_profile, width=22)
     btn_view_profile.pack(side="left", padx=6)
+
+    def open_track_progress():
+        nonlocal current_sub_window
+        close_sub_window()
+        current_sub_window = on_track_progress(root, member, current_sub_window)
+        
+    btn_track_progress = tk.Button(toolbar, text="Track Progress", command=open_track_progress, width=22)
+    btn_track_progress.pack(side="left", padx=6)
 
     btn_view_subscription = tk.Button(toolbar, text="View Subscription Plan", command=open_view_subscription, width=22)
     btn_view_subscription.pack(side="left", padx=6)

@@ -1,0 +1,77 @@
+[
+    {
+        "username": "datkim",
+        "attendance_dates": [
+            "2025-07-01",
+            "2025-07-02",
+            "2025-07-03",
+            "2025-07-04",
+            "2025-07-05",
+            "2025-10-22",
+            "2025-11-04",
+            "2025-11-07"
+        ],
+        "workout_records": [
+            {
+                "date": "2025-07-03",
+                "workout": "100 Push-up, 10 jump rope"
+            },
+            {
+                "date": "2025-07-04",
+                "workout": "50 Squat, 20 Burpees"
+            },
+            {
+                "date": "2025-07-05",
+                "workout": "30 minutes cardio"
+            },
+            {
+                "date": "2025-11-07",
+                "workout": "Full body workout"
+            }
+        ]
+    },
+    {
+        "username": "CucBach",
+        "attendance_dates": [
+            "2025-07-01",
+            "2025-07-02",
+            "2025-07-03",
+            "2025-07-04",
+            "2025-07-05",
+            "2025-07-06"
+        ],
+        "workout_records": [
+            {
+                "date": "2025-07-01",
+                "workout": "Upper body training"
+            },
+            {
+                "date": "2025-07-03",
+                "workout": "Lower body training"
+            },
+            {
+                "date": "2025-07-05",
+                "workout": "Core workout"
+            }
+        ]
+    },
+    {
+        "username": "ThanhToan",
+        "attendance_dates": [
+            "2025-07-01",
+            "2025-07-03",
+            "2025-07-05",
+            "2025-07-07"
+        ],
+        "workout_records": [
+            {
+                "date": "2025-07-01",
+                "workout": "Full body workout"
+            },
+            {
+                "date": "2025-07-05",
+                "workout": "HIIT session"
+            }
+        ]
+    }
+]

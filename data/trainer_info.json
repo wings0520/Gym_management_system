@@ -14,8 +14,8 @@
         "weight": "80",
         "trainer_id": "1",
         "member_username": [
-            "ducanh",
-            "khanhan",
+            "Dat Kim",
+            "Cuc Bach",
             "aaa"
         ]
     },
@@ -30,13 +30,13 @@
         "address": "456 Elm St, City, Country",
         "email": "jane@gmail.com",
         "username": "janesmith",
-        "height": 180,
-        "weight": 80,
-        "trainer_id": 2,
+        "height": "180",
+        "weight": "80",
+        "trainer_id": "2",
         "member_username": [
-            "phucdu",
-            "ductien",
-            "thanhhao"
+            "Thanh Toan",
+            "Chi Dinh",
+            "Long Nhat"
         ]
     },
     {
@@ -55,26 +55,27 @@
         "weight": "80",
         "trainer_id": "3",
         "member_username": [
-            "ducuc"
+            "Dat Nguyen"
         ]
     },
     {
         "id": 7,
-        "f_name": "tr",
-        "l_name": "tr",
+        "f_name": "thong",
+        "l_name": "hoang",
         "gender": "Male",
         "phone": "1234567890",
         "date_of_birth": "1990-01-01",
         "joined_date": "2023-01-01",
         "address": "123 Main St, City, Country",
         "email": "john@example.com",
-        "username": "tr",
+        "username": "hoangthong",
         "height": "180",
         "weight": "80",
         "trainer_id": "1",
         "member_username": [
-            "thanhhao",
-            "khanhan"
+            "Tu Doi",
+            "Hung Nguyen",
+            "Dat Kim"
         ]
     }
 ]

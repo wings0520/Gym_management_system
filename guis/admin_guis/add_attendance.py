@@ -5,6 +5,10 @@ from datetime import datetime
 import json
 import os
 import csv
+try:
+    from guis.trainer_guis import tracking_attendance
+except Exception:
+    tracking_attendance = None
 
 def load_all_members():
     if not os.path.exists("data/member_info.json"):
@@ -92,6 +96,11 @@ def on_add_attendance(root, admin):
         
         if admin.add_attendance_day(username, date_str):
             messagebox.showinfo("Success", f"Added attendance for {username} on {date_str}")
+            try:
+                if tracking_attendance and hasattr(tracking_attendance, 'refresh_tracking'):
+                    tracking_attendance.refresh_tracking()
+            except Exception:
+                pass
         else:
             messagebox.showerror("Error", "Failed to add attendance day!")
 

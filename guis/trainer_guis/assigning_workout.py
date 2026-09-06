@@ -33,8 +33,20 @@ def on_assigning_workout(root, trainer):
                     break
         except Exception:
             pass
-    filtered_members = [m for m in all_members if m.get("username") in trainer_member_usernames]
-    member_options = [(m.get("username", ""), m.get("name") or f"{m.get('f_name', '')} {m.get('l_name', '')}".strip()) for m in filtered_members]
+    # Trainer file may store member identifiers as usernames or display names (full name or 'name').
+    # Accept any of these forms to be resilient to inconsistent data.
+    def member_matches_trainer_list(member, trainer_list):
+        uname = (member.get("username") or "").strip()
+        full_name = f"{member.get('f_name', '')} {member.get('l_name', '')}".strip()
+        alt_name = (member.get("name") or "").strip()
+        return (uname in trainer_list) or (full_name in trainer_list) or (alt_name in trainer_list)
+
+    filtered_members = [m for m in all_members if member_matches_trainer_list(m, trainer_member_usernames)]
+    # member_options: (username, display_name)
+    member_options = []
+    for m in filtered_members:
+        display = (m.get("name") or f"{m.get('f_name', '')} {m.get('l_name', '')}".strip()).strip()
+        member_options.append((m.get("username", ""), display))
     member_usernames = [u for u, n in member_options]
     member_label = tk.Label(main_frame, text="Select Member:", font=("Arial", 12), bg=root["bg"])
     member_label.pack(pady=(0, 5))

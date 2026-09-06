@@ -13,6 +13,7 @@ from guis.admin_guis.manage_subscription import on_manage_subscription
 from guis.admin_guis.cal_revenue import on_cal_revenue
 from guis.admin_guis.search_trainer import on_search_trainer
 from guis.admin_guis.add_attendance import on_add_attendance
+from guis.admin_guis.top_members import open_top_members
 
 def open_admin_window(admin):
     root = tk.Tk()
@@ -132,6 +133,10 @@ def open_admin_window(admin):
         window = create_sub_window()
         on_add_attendance(window, admin)
 
+    def open_top_member():
+        window = create_sub_window()
+        open_top_members(window)
+
     # --- Bố cục (Layout) ---
     
     # SỬA LỖI: Tăng độ rộng sidebar từ 250 -> 280
@@ -176,6 +181,9 @@ def open_admin_window(admin):
     
     btn_cal_revenue = ttk.Button(sidebar_frame, text="Revenue Report", command=open_cal_revenue, style="Nav.TButton")
     btn_cal_revenue.pack(fill=tk.X, pady=5, padx=15) # <--- THAY ĐỔI
+
+    btn_top_members = ttk.Button(sidebar_frame, text="Top Active Members", command=open_top_member, style="Nav.TButton")
+    btn_top_members.pack(fill=tk.X, pady=5, padx=15)
     
     btn_exit = ttk.Button(sidebar_frame, text="Exit", command=root.destroy, style="Exit.TButton")
     btn_exit.pack(side=tk.BOTTOM, fill=tk.X, pady=20, padx=15) # <--- THAY ĐỔI

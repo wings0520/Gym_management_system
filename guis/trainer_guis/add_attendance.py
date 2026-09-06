@@ -4,6 +4,10 @@ from tkcalendar import DateEntry
 from datetime import datetime
 import json
 import os
+try:
+    from guis.trainer_guis import tracking_attendance
+except Exception:
+    tracking_attendance = None
 
 def load_all_members():
     if not os.path.exists("data/member_info.json"):
@@ -54,14 +58,27 @@ def on_add_attendance(root, trainer):
                     break
         except Exception:
             pass
-    filtered_members = [m for m in all_members if m.get("username") in trainer_member_usernames]
-    member_options = [(m.get("username", ""), m.get("name") or f"{m.get('f_name', '')} {m.get('l_name', '')}".strip()) for m in filtered_members]
+    # Accept trainer lists that contain either usernames or display/full names. Match by any of these.
+    def member_matches_trainer_list(member, trainer_list):
+        uname = (member.get("username") or "").strip()
+        full_name = f"{member.get('f_name','')} {member.get('l_name','')}".strip()
+        alt_name = (member.get("name") or "").strip()
+        return (uname in trainer_list) or (full_name in trainer_list) or (alt_name in trainer_list)
+
+    filtered_members = [m for m in all_members if member_matches_trainer_list(m, trainer_member_usernames)]
+    member_options = []
+    for m in filtered_members:
+        uname = m.get("username", "")
+        display = (m.get("name") or f"{m.get('f_name','')} {m.get('l_name','')}").strip()
+        member_options.append((uname, display))
+
     member_usernames = [u for u, n in member_options]
     member_display = [f"{n} ({u})" for u, n in member_options]
     member_label = tk.Label(main_frame, text="Select Member:", font=("Arial", 12), bg=root["bg"])
     member_label.pack(pady=(0, 5))
-    member_var = tk.StringVar(value=member_usernames[0] if member_usernames else "")
-    member_dropdown = ttk.Combobox(main_frame, textvariable=member_var, values=member_usernames, state="readonly", width=30)
+    # Show readable display strings but extract username when needed
+    member_var = tk.StringVar(value=member_display[0] if member_display else "")
+    member_dropdown = ttk.Combobox(main_frame, textvariable=member_var, values=member_display, state="readonly", width=30)
     member_dropdown.pack(pady=(0, 15))
 
     # Date picker
@@ -71,13 +88,24 @@ def on_add_attendance(root, trainer):
     date_entry.pack(pady=(0, 15))
 
     def add_attendance():
-        username = member_var.get()
+        sel = member_var.get()
+        # sel is like 'Display Name (username)'; extract username
+        if sel.endswith(')') and '(' in sel:
+            username = sel[sel.rfind('(')+1:-1]
+        else:
+            username = sel
         date_str = date_entry.get_date().strftime('%Y-%m-%d')
         if not username:
             messagebox.showerror("Error", "Please select a member.")
             return
         if trainer.add_attendance_day(username, date_str):
             messagebox.showinfo("Success", f"Added attendance for {username} on {date_str}")
+            # notify tracking view to refresh if it's open
+            try:
+                if tracking_attendance and hasattr(tracking_attendance, 'refresh_tracking'):
+                    tracking_attendance.refresh_tracking()
+            except Exception:
+                pass
         else:
             messagebox.showerror("Error", "Failed to add attendance day!")
 

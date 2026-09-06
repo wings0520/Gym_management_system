@@ -1,17 +1,17 @@
 [
     {
         "id": 1,
-        "f_name": "Duc",
-        "l_name": "Anh",
+        "f_name": "Dat",
+        "l_name": "Kim",
         "gender": "Male",
         "phone": "1234567890",
         "date_of_birth": "1990-01-01",
         "joined_date": "2023-01-01",
         "address": "123 Main St, City, Country",
         "email": "john@example.com",
-        "membership": "1 Months",
-        "subscription_expiry": "2025-09-01",
-        "username": "ducanh",
+        "membership": "Lifetime",
+        "subscription_expiry": "3121-01-11",
+        "username": "datkim",
         "attendance_days": [
             "2025-07-03",
             "2025-07-04",
@@ -31,14 +31,34 @@
             [
                 "2025-07-24",
                 "Chay 100km"
+            ],
+            [
+                "2025-11-07",
+                "aaa"
+            ],
+            [
+                "2025-11-12",
+                "abc hit dat 1000 cai"
             ]
         ],
-        "trainer_username": "johndoe"
+        "trainer_username": "hoangthong",
+        "body_stats": [
+            {
+                "date": "2025-11-07",
+                "weight": 100.0,
+                "body_fat": 50.0
+            },
+            {
+                "date": "2025-11-07",
+                "weight": 122.0,
+                "body_fat": 69.0
+            }
+        ]
     },
     {
         "id": 2,
-        "f_name": "kha",
-        "l_name": "nhan",
+        "f_name": "Cuc",
+        "l_name": "Bach",
         "gender": "Female",
         "phone": "0987654321",
         "date_of_birth": "1995-05-15",
@@ -47,12 +67,14 @@
         "email": "jane@gmail.com",
         "membership": "12 Months",
         "subscription_expiry": "2026-8-01",
-        "username": "khanhan",
+        "username": "CucBach",
         "attendance_days": [
             "2025-07-03",
             "2025-07-04",
             "2025-11-04",
-            "2025-11-05"
+            "2025-11-05",
+            "2025-11-07",
+            "2025-11-06"
         ],
         "workout_days": [
             [
@@ -81,7 +103,7 @@
     {
         "id": 3,
         "f_name": "Thanh",
-        "l_name": "Hao",
+        "l_name": "Toan",
         "gender": "Female",
         "phone": "5551234567",
         "date_of_birth": "2000-12-31",
@@ -90,11 +112,12 @@
         "email": "alice@fpt.edu.vn",
         "membership": "Lifetime",
         "subscription_expiry": "2199-01-01",
-        "username": "thanhhao",
+        "username": "ThanhToan",
         "attendance_days": [
             "2025-07-03",
             "2025-07-04",
-            "2025-11-04"
+            "2025-11-04",
+            "2025-11-07"
         ],
         "workout_days": [
             [
@@ -110,8 +133,8 @@
     },
     {
         "id": 4,
-        "f_name": "Duc",
-        "l_name": "Tien",
+        "f_name": "Dinh",
+        "l_name": "Chi",
         "gender": "Female",
         "phone": "5551244467",
         "date_of_birth": "2000-12-31",
@@ -120,7 +143,7 @@
         "email": "aaadasd@fpt.edu.vn",
         "membership": "Lifetime",
         "subscription_expiry": "2199-01-01",
-        "username": "ductien",
+        "username": "DinhChi",
         "attendance_days": [
             "2025-07-03",
             "2025-07-04"
@@ -139,8 +162,8 @@
     },
     {
         "id": 5,
-        "f_name": "Phuc",
-        "l_name": "Du",
+        "f_name": "Long",
+        "l_name": "Nhat",
         "gender": "Female",
         "phone": "551234567",
         "date_of_birth": "2000-12-31",
@@ -149,7 +172,7 @@
         "email": "alas@fpt.edu.vn",
         "membership": "Lifetime",
         "subscription_expiry": "2199-01-01",
-        "username": "phucdu",
+        "username": "LongNhat",
         "attendance_days": [
             "2025-07-03",
             "2025-07-04",
@@ -169,9 +192,9 @@
     },
     {
         "id": 6,
-        "f_name": "Duc",
-        "l_name": "Em",
-        "name": "Duc Em",
+        "f_name": "Dat",
+        "l_name": "Nguyen",
+        "name": "Dat Nguyen",
         "gender": "male",
         "phone": "0123123123",
         "date_of_birth": "2006-01-01",
@@ -180,7 +203,7 @@
         "email": "emo@gmail.com",
         "membership": "12 Months",
         "subscription_expiry": "2026-07-21",
-        "username": "ducem",
+        "username": "DatNguyen",
         "attendance_days": [
             "2025-07-03",
             "2025-07-04"
@@ -199,9 +222,9 @@
     },
     {
         "id": 7,
-        "f_name": "d",
-        "l_name": "d",
-        "name": "d d",
+        "f_name": "Tu",
+        "l_name": "Doi",
+        "name": "Tu Doi",
         "gender": "male",
         "phone": "dd",
         "date_of_birth": "2000-01-01",
@@ -210,7 +233,7 @@
         "email": "d",
         "membership": "1 Months",
         "subscription_expiry": "2025-08-21",
-        "username": "d",
+        "username": "TuDoi",
         "attendance_days": [
             "2025-07-03",
             "2025-07-04",
@@ -226,13 +249,13 @@
                 "50 Squat, 20 Burpees"
             ]
         ],
-        "trainer_username": "johndoe"
+        "trainer_username": "hoangthong"
     },
     {
         "id": 8,
-        "f_name": "Duc",
-        "l_name": "Uc",
-        "name": "Duc Uc",
+        "f_name": "Hung",
+        "l_name": "Nguyen",
+        "name": "Hung Nguyen",
         "gender": "male",
         "phone": "123123123123",
         "date_of_birth": "2000-01-05",
@@ -241,10 +264,10 @@
         "email": "aloalo@gmail.com",
         "membership": "3 Months",
         "subscription_expiry": "2025-10-20",
-        "username": "ducuc",
+        "username": "HungNguyen",
         "attendance_days": [],
         "workout_days": [],
-        "trainer_username": "alicejohnson"
+        "trainer_username": "hoangthong"
     },
     {
         "id": 9,

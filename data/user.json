@@ -5,8 +5,8 @@
         "role": "admin"
     },
     {
-        "username": "ad",
-        "password": "ad",
+        "username": "nhathoa",
+        "password": "nhathoa",
         "role": "admin"
     },
     {
@@ -20,13 +20,13 @@
         "role": "member"
     },
     {
-        "username": "tr",
-        "password": "tr",
+        "username": "hoangthong",
+        "password": "hoangthong",
         "role": "trainer"
     },
     {
-        "username": "ducanh",
-        "password": "ducanh",
+        "username": "datkim",
+        "password": "datkim",
         "role": "member"
     },
     {
